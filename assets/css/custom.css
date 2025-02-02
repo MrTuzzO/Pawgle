@@ -1,0 +1,180 @@
+:root {
+    --bs-primary: #c19a6b;
+    --bs-primary-rgb: 193, 154, 107;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: Arial, sans-serif;
+}
+
+img {
+    max-width: 100%;
+}
+
+.tb {
+    font-weight: bold;
+}
+
+/* Override button styles */
+.btn-primary {
+    background-color: var(--bs-primary) !important;
+    border-color: var(--bs-primary) !important;
+}
+
+.btn-outline-primary {
+    --bs-btn-color: var(--bs-primary);
+    --bs-btn-border-color: var(--bs-primary);
+    --bs-btn-hover-bg: var(--bs-primary);
+    --bs-btn-hover-border-color: var(--bs-primary);
+    --bs-btn-active-bg: var(--bs-primary);
+    --bs-btn-active-border-color: var(--bs-primary);
+    --bs-btn-disabled-color: var(--bs-primary);
+    --bs-btn-disabled-bg: var(--bs-primary);
+    --bs-btn-disabled-border-color: var(--bs-primary);
+}
+
+.btn-primary:hover,
+.btn-primary:focus,
+.btn-primary:active {
+    background-color: rgba(var(--bs-primary-rgb), 0.8) !important;
+    /* Slightly lighter */
+    border-color: rgba(var(--bs-primary-rgb), 0.8) !important;
+}
+
+/* Override border styles */
+.border-primary {
+    border-color: var(--bs-primary) !important;
+}
+
+/* Override outline styles (for focus/active states) */
+.btn-primary:focus-visible {
+    outline-color: var(--bs-primary) !important;
+}
+
+/* Override input focus styles */
+.form-control:focus,
+.form-select:focus,
+textarea:focus {
+    border-color: var(--bs-primary) !important;
+    box-shadow: 0 0 0 0.25rem rgba(var(--bs-primary-rgb), 0.25) !important;
+    outline: none !important;
+}
+
+/* Custom outline for buttons or other elements when focused */
+.btn:focus,
+.btn-primary:focus {
+    box-shadow: 0 0 0 0.25rem rgba(var(--bs-primary-rgb), 0.5) !important;
+    outline: none !important;
+}
+
+
+/* Active accordion button */
+.accordion-button:not(.collapsed) {
+    background-color: var(--bs-primary);
+    /* Custom primary background */
+    color: #fff;
+    /* White text */
+    border-color: var(--bs-primary);
+    /* Custom primary border */
+    box-shadow: none;
+    /* Remove Bootstrap's focus outline if unwanted */
+}
+
+/* Active accordion button when focused */
+.accordion-button:not(.collapsed):focus {
+    background-color: var(--bs-primary);
+    /* Keep primary background */
+    color: #fff;
+    /* Ensure white text */
+    border-color: var(--bs-primary);
+    /* Maintain primary border */
+    outline: none;
+    /* Remove extra outline */
+    box-shadow: none;
+    /* Optional: Remove glow */
+}
+
+/* Change icon color for active state */
+.accordion-button:not(.collapsed)::after {
+    filter: brightness(0) invert(1);
+    /* Make the icon white */
+}
+
+/* Hover effect for better UX */
+.accordion-button:hover {
+    background-color: rgba(var(--bs-primary-rgb), 0.85);
+    /* Slightly lighter primary color */
+    color: #fff;
+    /* Ensure white text */
+    border-color: var(--bs-primary);
+    /* Maintain primary border */
+}
+
+/* Optional: Adjust collapsed state for consistency */
+.accordion-button.collapsed {
+    color: #000;
+    /* Default black text for collapsed state */
+    background-color: #fff;
+    /* Default white background */
+    border-color: #ccc;
+    /* Light gray border */
+}
+
+/* Active border for accordion item */
+.accordion-item .accordion-button:not(.collapsed) {
+    border: 2px solid var(--bs-primary);
+    /* Thicker border for active state */
+}
+
+.accordion-button:focus {
+    outline: none;
+    /* Remove the default focus outline */
+    box-shadow: none;
+    /* Remove the box-shadow for focus */
+}
+
+/* Active state: Ensure focus does not reintroduce unwanted borders */
+.accordion-button:not(.collapsed):focus {
+    background-color: var(--bs-primary);
+    color: #fff;
+    border-color: var(--bs-primary);
+    box-shadow: none;
+    /* Remove any unwanted shadow */
+}
+
+
+/* Common Custom css */
+.vc_card strong {
+    padding-bottom: 7px;
+    display: inline-block;
+}
+
+#loader {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(23, 23, 23, 0.8);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+}
+
+.container {
+    max-width: 1200px;
+}
+
+.nav-link {
+    color: var(--bs-primary);
+}
+
+.nav-link:hover {
+    color: var(--bs-primary);
+}

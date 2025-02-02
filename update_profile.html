@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Patient Signup - Vaccination Management System</title>
+    <!-- Bootstrap 5 CDN -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- config js -->
+    <script src="assets/js/config.js"></script>
+    <!-- Fonawesome CDN -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.1/css/all.min.css"
+        integrity="sha512-5Hs3dF2AEPkpNAR7UiOHba+lRSJNeM2ECkwxUIxC1Q/FLycGTbNapWXB4tP889k5T5Ju8fs4b1P5z/iB4nMfSQ=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="assets/css/custom.css">
+    <!-- Main JS -->
+    <script src="assets/js/main.js" defer></script>
+</head>
+
+<body>
+    <!-- header -->
+    <div id="header"></div>
+    <!-- loader -->
+    <div id="loader" class="d-none"></div>
+    <!-- Alert -->
+    <div id="alert-container" class="position-fixed top-0 start-50 translate-middle-x mt-3"
+        style="z-index: 1055; width: 90%; max-width: 500px;"></div>
+
+
+
+    <main class="d-flex align-items-center justify-content-center my-5">
+        <div class="card shadow p-4" style="width: 100%; max-width: 600px;">
+            <h2 class="text-center mb-4">Update Details</h2>
+            <form id="update-profile-form">
+                <!-- First Name and Last Name Side by Side -->
+                <div class="row mb-3">
+                    <div class="col-md-6">
+                        <label for="first_name" class="form-label">First Name</label>
+                        <input type="text" id="first_name" name="first_name" class="form-control"
+                            placeholder="Enter your first name" required>
+                    </div>
+                    <div class="col-md-6">
+                        <label for="last_name" class="form-label">Last Name</label>
+                        <input type="text" id="last_name" name="last_name" class="form-control"
+                            placeholder="Enter your last name" required>
+                    </div>
+                </div>
+
+                <!-- Age Input -->
+                <div class="mb-3">
+                    <label for="age" class="form-label">Birth date</label>
+                    <input type="date" id="age" name="age" class="form-control" placeholder="Enter date of birth">
+                </div>
+
+                <!-- Monbile -->
+                <div class="mb-3">
+                    <label for="mobile" class="form-label">Mobile Number</label>
+                    <input type="number" id="mobile" name="mobile" class="form-control"
+                        placeholder="Enter date of birth">
+                </div>
+
+                <!-- Address Info -->
+                <div class="mb-3">
+                    <label for="address" class="form-label">Address</label>
+                    <textarea id="address" name="address" class="form-control" placeholder="Enter Address"
+                        rows="3"></textarea>
+                </div>
+
+
+                <!-- Submit Button -->
+                <button type="submit" class="btn btn-primary w-100">Update</button>
+            </form>
+        </div>
+    </main>
+
+    <script src="assets/js/update_profile.js"></script>
+
+    <div id="footer"></div>
+    <script src="assets/js/update_patient_profile.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>

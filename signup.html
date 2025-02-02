@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Patient Signup - Vaccination Management System</title>
+    <!-- Bootstrap 5 CDN -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="assets/css/custom.css">
+    <!-- config js -->
+    <script src="assets/js/config.js"></script>
+    <!-- Main JS -->
+    <script src="assets/js/main.js" defer></script>
+</head>
+
+<body>
+    <!-- header -->
+    <div id="header"></div>
+    <!-- loader -->
+    <div id="loader" class="d-none"></div>
+    <!-- Alert -->
+    <div id="alert-container" class="position-fixed top-0 start-50 translate-middle-x mt-3"
+        style="z-index: 1055; width: 90%; max-width: 500px;"></div>
+
+
+    <main class="d-flex align-items-center justify-content-center my-5">
+        <div class="card shadow p-4" style="width: 100%; max-width: 600px;">
+            <h2 class="text-center mb-4">Signup Now</h2>
+            <form id="register-form">
+                <!-- Username -->
+                <div class="mb-3">
+                    <label for="username" class="form-label">Username</label>
+                    <input type="text" id="username" name="username" class="form-control"
+                        placeholder="Enter your username" required>
+                </div>
+
+                <!-- Email -->
+                <div class="mb-3">
+                    <label for="email" class="form-label">Email Address</label>
+                    <input type="email" id="email" name="email" class="form-control" placeholder="Enter your email"
+                        required>
+                </div>
+
+                <!-- Password -->
+                <div class="mb-3">
+                    <label for="password" class="form-label">Password</label>
+                    <input type="password" id="password" name="password1" class="form-control"
+                        placeholder="Create a password" required>
+                    <div class="form-text text-muted mt-1">
+                        <small>
+                            Your password must:
+                            <ul class="text-muted pl-3">
+                                <li>Must be at least 8 characters long</li>
+                                <!-- <li>Include a mix of letters and numbers</li>
+                                <li>Not be entirely numeric</li>
+                                <li>Contain at least one special character (e.g., @, #, $)</li> -->
+                            </ul>
+                        </small>
+                    </div>
+                </div>
+                <!-- Confirm Password -->
+                <div class="mb-3">
+                    <label for="confirm_password" class="form-label">Confirm Password</label>
+                    <input type="password" id="confirm_password" name="password2" class="form-control"
+                        placeholder="Confirm your password" required>
+                </div>
+                <!-- Submit Button -->
+                <button type="submit" class="btn btn-primary w-100">Submit</button>
+            </form>
+            <div class="text-center mt-3">
+                <p>Already have an account? <a href="login.html" class="text-primary">Login</a></p>
+            </div>
+        </div>
+    </main>
+
+
+    <script src="assets/js/signup.js"></script>
+    <div id="footer"></div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>
