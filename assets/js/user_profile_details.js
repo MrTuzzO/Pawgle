@@ -28,6 +28,7 @@ document.addEventListener("DOMContentLoaded", () => {
         .then((data) => {
             populateProfileCard(data);
             localStorage.setItem("username", data.username);
+            document.title = `${data.username} - Profile`;
         })
         .catch((error) => {
             console.error("Error fetching profile data:", error);
