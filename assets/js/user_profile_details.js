@@ -3,6 +3,9 @@ document.addEventListener("DOMContentLoaded", () => {
     const apiUrl = `${root_api}/api/auth/profile/`; // Update the URL as per your backend setup
     const authToken = localStorage.getItem("authToken"); // Assuming authToken is stored in localStorage
 
+    const loader = document.getElementById('loader');
+    loader.classList.remove('d-none'); // Show loader
+
     if (!authToken) {
         window.location.href = "login.html";
         return;
@@ -28,6 +31,9 @@ document.addEventListener("DOMContentLoaded", () => {
         })
         .catch((error) => {
             console.error("Error fetching profile data:", error);
+        })
+        .finally(() => {
+            document.getElementById("loader").classList.add("d-none");
         });
 });
 
@@ -44,4 +50,5 @@ function populateProfileCard(data) {
     document.getElementById("address").textContent = data.address || "N/A";
     document.getElementById("mobile").textContent = data.mobile || "N/A";
     document.getElementById("joined").textContent = joined || "N/A";
+    document.getElementById("user_img").src = data.user_img || "./assets/img/blank-profile-picture.png";
 }

@@ -1,21 +1,32 @@
 
 // Function to fetch data from the API
 async function fetchPets(species, page = 1) {
-    if (species === 'all') {
-        document.getElementById('color_container').style.display = 'none';
-        const response = await fetch(`${root_api}/api/pets/?page=${page}`);
-        const data = await response.json();
-        return data;
-    } else if (species === 'pets') {
-        document.getElementById('color_container').style.display = 'none';
-        const response = await fetch(`${root_api}/api/pets/pets_only/`);
-        const data = await response.json();
-        return data;
-    } else {
-        document.getElementById('color_container').style.display = 'block';
-        const response = await fetch(`${root_api}/api/pet/${species}/?page=${page}`);
-        const data = await response.json();
-        return data;
+    // for adding loader
+    const loader = document.getElementById('loader');
+    loader.classList.remove('d-none'); // Show loader
+
+    try {
+        if (species === 'all') {
+            document.getElementById('color_container').style.display = 'none';
+            const response = await fetch(`${root_api}/api/pets/?page=${page}`);
+            const data = await response.json();
+            return data;
+        } else if (species === 'pets') {
+            document.getElementById('color_container').style.display = 'none';
+            const response = await fetch(`${root_api}/api/pets/pets_only/`);
+            const data = await response.json();
+            return data;
+        } else {
+            document.getElementById('color_container').style.display = 'block';
+            const response = await fetch(`${root_api}/api/pet/${species}/?page=${page}`);
+            const data = await response.json();
+            return data;
+        }
+    } catch (error) {
+        console.error("Error fetching pets:", error);
+        return null;
+    } finally {
+        loader.classList.add('d-none'); // Hide loader
     }
 }
 
@@ -133,20 +144,28 @@ window.addEventListener('DOMContentLoaded', () => {
 
 // Function to fetch pets based on filters
 async function fetchFilteredPets(species, filters, page = 1) {
-    if (species === 'all') {
+    const loader = document.getElementById('loader');
+    loader.classList.remove('d-none'); // Show loader
+
+    try {
+        if (species === 'all') {
+            const query = new URLSearchParams(filters).toString();
+            const response = await fetch(`${root_api}/api/pets/?page=${page}&${query}`);
+            console.log(`${root_api}/api/pets/?page=${page}&${query}`);
+            const data = await response.json();
+            return data;
+        }
         const query = new URLSearchParams(filters).toString();
-        const response = await fetch(`${root_api}/api/pets/?page=${page}&${query}`);
-        console.log(`${root_api}/api/pets/?page=${page}&${query}`);
+        const response = await fetch(`${root_api}/api/pet/${species}/?page=${page}&${query}`);
+
         const data = await response.json();
         return data;
+    }catch (error) {
+        console.error("Error fetching pets:", error);
+        return null;
+    } finally {
+        loader.classList.add('d-none'); // Hide loader
     }
-    const query = new URLSearchParams(filters).toString();
-    const response = await fetch(`${root_api}/api/pet/${species}/?page=${page}&${query}`);
-
-    console.log(`${root_api}/api/pet/${species}/?page=${page}&${query}`);
-
-    const data = await response.json();
-    return data;
 }
 
 // Function to extract selected filters
