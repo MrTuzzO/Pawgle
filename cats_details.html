@@ -20,7 +20,7 @@
 
 
 </head>
-<title>Home - Pet Adoption</title>
+<!-- <title>Home - Pet Adoption</title> -->
 </head>
 
 <body>
@@ -72,6 +72,40 @@
     </div>
   </div>
 
+  <!-- Report Modal -->
+  <div class="modal fade" id="reportModal" tabindex="-1" aria-labelledby="reportModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="reportModalLabel">Report Post</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <form id="reportForm">
+            <div class="mb-3">
+              <label for="reason" class="form-label">Select Reason</label>
+              <select class="form-select" id="reason" name="reason" required>
+                <option value="Fake">Fake Content</option>
+                <option value="Irrelevant">Irrelevant Post</option>
+                <option value="Violence">Sensitive Violence</option>
+                <option value="Nudity">Nudity or Sexual Content</option>
+                <option value="Other">Other Issues</option>
+              </select>
+            </div>
+
+            <div class="mb-3">
+              <label for="description" class="form-label">Description (Optional)</label>
+              <textarea class="form-control" id="rep_description" name="description" rows="3"
+                placeholder="Describe the issue..."></textarea>
+            </div>
+
+            <button type="submit" class="btn btn-danger w-100">Submit Report</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+
 
   <!-- Main Content -->
   <div class="container my-5">
@@ -89,6 +123,29 @@
             <span class="visually-hidden">Next</span>
           </button>
         </div>
+
+        <div class="my-3">
+          <div class="d-flex justify-content-between align-items-center">
+            <!-- report -->
+            <button type="button" class="btn text-muted border" data-bs-toggle="modal" data-bs-target="#reportModal">
+              Report <i class="fas fa-flag ms-1"></i>
+            </button>
+            <div class="d-flex align-items-center gap-2">
+              <button class="btn btn-primary" id="shareBtn">
+                <i class="fas fa-share-alt"></i> Share
+              </button>
+              <a href="#" target="_blank" class="btn btn-outline-primary" id="facebookShare"><i
+                  class="fab fa-facebook-f"></i></a>
+              <a href="#" target="_blank" class="btn btn-outline-primary" id="twitterShare"><i
+                  class="fa-brands fa-x-twitter"></i></a>
+              <a href="#" target="_blank" class="btn btn-outline-primary" id="linkedinShare"><i
+                  class="fab fa-linkedin-in"></i></a>
+              <a href="#" target="_blank" class="btn btn-outline-primary" id="whatsappShare"><i
+                  class="fab fa-whatsapp"></i></a>
+            </div>
+          </div>
+        </div>
+
       </div>
       <!-- Cat Information -->
       <div class="col-md-5">
@@ -98,58 +155,7 @@
             data-bs-target="#adoptionFormModal">
             Apply to Adopt
           </button>
-          <!-- <h2 class="text-primary">Mr. Tux</h2> -->
-          <!-- <div class="info-header">
-            <div class="info-item d-felx justify-content-between">
-              <h2 class="text-primary">Mr. Tux</h2>
-              <p class="badge bg-primary fs-5 rounded-pill mt-1">Available to adopt</p>
-            </div>
-            <div class="info-item">
-              <strong>Color:</strong>
-              <span>Black, White</span>
-            </div>
-            <div class="info-item">
-              <strong>Age:</strong>
-              <span>2</span>
-            </div>
-            <div class="info-item">
-              <strong>Food Habit:</strong>
-              <span>Test</span>
-            </div>
-            <div class="info-item">
-              <strong>Is potty trained:</strong>
-              <span>Test</span>
-            </div>
-            <div class="info-item">
-              <strong>Gender:</strong>
-              <span>Male</span>
-            </div>
-            <div class="info-item">
-              <strong>Arrived Date:</strong>
-              <span>December 10, 2024</span>
-            </div>
-            <div class="info-item">
-              <strong>Location:</strong>
-              <span>Greystones</span>
-            </div>
-            <div class="info-item">
-              <strong>Adoption Cost:</strong>
-              <span>$130</span>
-            </div>
-            <div class="info-item">
-              <strong>Author:</strong>
-              <span>Mr Tuzzo</span>
-            </div>
-            <div class="info-item">
-              <strong>Description:</strong>
-              <span>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Praesentium tenetur enim nisi possimus
-                explicabo perspiciatis quos reprehenderit? Iste sit natus asperiores nisi saepe beatae minus dolor a,
-                doloremque perspiciatis rerum.</span>
-            </div>
-          </div> -->
-          <!-- <button class="btn btn-primary w-100 rounded-pill apply-btn" data-bs-toggle="modal"
-            data-bs-target="#adoptionFormModal">Apply to
-            Adopt</button> -->
+
         </div>
       </div>
     </div>
@@ -174,13 +180,14 @@
       });
     }
   </script>
-  <script src="assets/js/cat_details.js"></script>
 
+  <script src="assets/js/cat_details.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"
     integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4"
     crossorigin="anonymous"></script>
-
   <script src="assets/js/send_adoption_request.js"></script>
+  <script src="assets/js/social_share.js"></script>
+  <script src="assets/js/submit_report.js"></script>
 </body>
 
 </html>

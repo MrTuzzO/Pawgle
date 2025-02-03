@@ -20,7 +20,7 @@
 
 
 </head>
-<title>Home - Pet Adoption</title>
+<!-- <title>Home - Pet Adoption</title> -->
 </head>
 
 <body>
@@ -72,6 +72,40 @@
     </div>
   </div>
 
+  <!-- Report Modal -->
+  <div class="modal fade" id="reportModal" tabindex="-1" aria-labelledby="reportModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="reportModalLabel">Report Post</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <form id="reportForm">
+            <div class="mb-3">
+              <label for="reason" class="form-label">Select Reason</label>
+              <select class="form-select" id="reason" name="reason" required>
+                <option value="Fake">Fake Content</option>
+                <option value="Irrelevant">Irrelevant Post</option>
+                <option value="Violence">Sensitive Violence</option>
+                <option value="Nudity">Nudity or Sexual Content</option>
+                <option value="Other">Other Issues</option>
+              </select>
+            </div>
+
+            <div class="mb-3">
+              <label for="description" class="form-label">Description (Optional)</label>
+              <textarea class="form-control" id="rep_description" name="description" rows="3"
+                placeholder="Describe the issue..."></textarea>
+            </div>
+
+            <button type="submit" class="btn btn-danger w-100">Submit Report</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+
 
   <!-- Main Content -->
   <div class="container my-5">
@@ -88,6 +122,27 @@
             <span class="carousel-control-next-icon" aria-hidden="true"></span>
             <span class="visually-hidden">Next</span>
           </button>
+        </div>
+        <div class="my-3">
+          <div class="d-flex justify-content-between align-items-center">
+            <!-- report -->
+            <button type="button" class="btn text-muted border" data-bs-toggle="modal" data-bs-target="#reportModal">
+              Report <i class="fas fa-flag ms-1"></i>
+            </button>
+            <div class="d-flex align-items-center gap-2">
+              <button class="btn btn-primary" id="shareBtn">
+                <i class="fas fa-share-alt"></i> Share
+              </button>
+              <a href="#" target="_blank" class="btn btn-outline-primary" id="facebookShare"><i
+                  class="fab fa-facebook-f"></i></a>
+              <a href="#" target="_blank" class="btn btn-outline-primary" id="twitterShare"><i
+                  class="fa-brands fa-x-twitter"></i></a>
+              <a href="#" target="_blank" class="btn btn-outline-primary" id="linkedinShare"><i
+                  class="fab fa-linkedin-in"></i></a>
+              <a href="#" target="_blank" class="btn btn-outline-primary" id="whatsappShare"><i
+                  class="fab fa-whatsapp"></i></a>
+            </div>
+          </div>
         </div>
       </div>
       <!-- Dog Information -->
@@ -123,6 +178,8 @@
     crossorigin="anonymous"></script>
 
   <script src="assets/js/send_adoption_request.js"></script>
+  <script src="assets/js/social_share.js"></script>
+  <script src="assets/js/submit_report.js"></script>
 </body>
 
 </html>

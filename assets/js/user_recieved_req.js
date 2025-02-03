@@ -142,6 +142,9 @@ document.addEventListener("DOMContentLoaded", function () {
         });
 });
 function updateStatus(requestId, action) {
+    const loader = document.getElementById('loader');
+    loader.classList.remove('d-none'); // Show loader
+
     console.log(`Updating request status to ${action} for request ID: ${requestId}`);
     fetch(`${root_api}/api/adoptions/adoption-request/${requestId}/update/`, {
         method: 'POST',
@@ -163,5 +166,8 @@ function updateStatus(requestId, action) {
         })
         .catch(error => {
             showAlert(error.message, 'danger');
+        })
+        .finally(() => {
+            loader.classList.add('d-none'); // Hide loader
         });
 }

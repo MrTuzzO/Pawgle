@@ -8,6 +8,9 @@ console.log(apiUrl);
 
 // Fetch pet details
 const fetchpetDetails = async () => {
+  const loader = document.getElementById('loader');
+  loader.classList.remove('d-none'); // Show loader
+
   try {
     const response = await fetch(apiUrl);
 
@@ -19,6 +22,8 @@ const fetchpetDetails = async () => {
     renderpetDetails(data);
   } catch (error) {
     console.error("Failed to fetch pet details:", error);
+  } finally {
+    document.getElementById("loader").classList.add("d-none");
   }
 };
 
@@ -27,6 +32,8 @@ const renderpetDetails = (pet) => {
   const carouselInner = document.querySelector(".carousel-inner");
   const infoHeader = document.querySelector(".info-header");
 
+  document.title = `${pet.name} - ${pet.description}`;
+  
   // Add images to the carousel
   const images = [pet.image_1, pet.image_2, pet.image_3, pet.image_4].filter(
     (img) => img !== null

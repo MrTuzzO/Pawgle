@@ -7,6 +7,9 @@ let apiUrl = `${root_api}/api/pet/cats/${catId}/`;
 
 // Fetch cat details
 const fetchCatDetails = async () => {
+  const loader = document.getElementById('loader');
+  loader.classList.remove('d-none'); // Show loader
+
   try {
     const response = await fetch(apiUrl);
 
@@ -18,6 +21,8 @@ const fetchCatDetails = async () => {
     renderCatDetails(data);
   } catch (error) {
     console.error("Failed to fetch cat details:", error);
+  } finally {
+    document.getElementById("loader").classList.add("d-none");
   }
 };
 
@@ -26,6 +31,8 @@ const renderCatDetails = (cat) => {
   const carouselInner = document.querySelector(".carousel-inner");
   const infoHeader = document.querySelector(".info-header");
 
+  document.title = `${cat.name} - ${cat.description}`;
+  
   // Add images to the carousel
   const images = [cat.image_1, cat.image_2, cat.image_3, cat.image_4].filter(
     (img) => img !== null
