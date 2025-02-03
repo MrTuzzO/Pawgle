@@ -20,6 +20,11 @@
 <body>
     <!-- header -->
     <div id="header"></div>
+    <!-- loader -->
+    <div id="loader" class="d-none"></div>
+    <!-- Alert -->
+    <div id="alert-container" class="position-fixed top-0 start-50 translate-middle-x mt-3"
+        style="z-index: 1055; width: 90%; max-width: 500px;"></div>
 
     <main class="d-flex align-items-center justify-content-center">
         <section class="container py-5">
@@ -109,13 +114,102 @@
 
             </div>
 
+            <section id="terms-conditions" class="container my-5">
+                <div>
+                    <h2 class="fw-bold text-primary text-center mb-4">Terms & Conditions</h2>
+
+                    <ul class="text-muted">
+                        <li>
+                            <strong>Acceptance of Terms</strong>
+                            <p>By accessing or using our website, you agree to comply with and be bound by these Terms &
+                                Conditions and our Privacy Policy. If you do not agree with any of the terms, please
+                                refrain from using the website.</p>
+                        </li>
+
+                        <li>
+                            <strong>Use of Website</strong>
+                            <p>You are permitted to use our website for personal and non-commercial purposes. You agree
+                                not to use the website for any illegal activities, including but not limited to
+                                unauthorized access to other users' accounts, data theft, or spamming.</p>
+                        </li>
+
+                        <li>
+                            <strong>User Accounts</strong>
+                            <p>To access certain features, such as uploading photos or interacting with others, you may
+                                need to create an account. You are responsible for maintaining the confidentiality of
+                                your account credentials and for all activities that occur under your account.</p>
+                        </li>
+
+                        <li>
+                            <strong>Privacy and Data Protection</strong>
+                            <p>We value your privacy. Personal data provided during registration or interaction with the
+                                site will be handled in accordance with our Privacy Policy. We will not share your
+                                personal data with third parties without your consent, except as required by law.</p>
+                            <ul>
+                                <li><strong>Uploaded Photos:</strong> The photos you upload to our platform are public,
+                                    meaning they can be viewed by other users. Please ensure that you have the right to
+                                    share any content you upload.</li>
+                                <li><strong>Personal Data Protection:</strong> While the photos you upload are public,
+                                    we take steps to protect your personal data. Your personal information, including
+                                    your email address and account details, is stored securely and will not be shared
+                                    with others without your consent, unless required by law.</li>
+                            </ul>
+                        </li>
+
+                        <li>
+                            <strong>Intellectual Property</strong>
+                            <p>All content on our website, including images, logos, graphics, and text, is owned by us
+                                or our licensors and is protected by copyright laws. You are not allowed to copy,
+                                distribute, or reproduce any content from the website without explicit permission.</p>
+                        </li>
+
+                        <li>
+                            <strong>User-Generated Content</strong>
+                            <p>By uploading content (photos, comments, reviews, etc.) to our website, you grant us a
+                                non-exclusive, royalty-free license to use, modify, and display your content. You affirm
+                                that you own the rights to any content you upload and that it does not infringe on the
+                                rights of others.</p>
+                        </li>
+
+                        <li>
+                            <strong>Prohibited Activities</strong>
+                            <p>You agree not to:</p>
+                            <ul>
+                                <li>Upload or share offensive, obscene, or unlawful content.</li>
+                                <li>Use the website to harass, defame, or harm others.</li>
+                                <li>Engage in any activity that could harm the operation or security of the website.
+                                </li>
+                            </ul>
+                        </li>
+
+                        <li>
+                            <strong>Limitation of Liability</strong>
+                            <p>We are not liable for any damages arising from your use of the website or your inability
+                                to access certain features, including but not limited to direct, indirect, incidental,
+                                or consequential damages.</p>
+                        </li>
+
+                        <li>
+                            <strong>Modifications to Terms</strong>
+                            <p>We reserve the right to update or modify these Terms & Conditions at any time. Any
+                                changes will be posted on this page with an updated date. By continuing to use the
+                                website, you agree to accept any changes to these Terms.</p>
+                        </li>
+
+                        <li>
+                            <strong>Contact Information</strong>
+                            <p>If you have any questions regarding these Terms & Conditions or our Privacy Policy,
+                                please contact us at <a
+                                    href="mailto:khirulislam5750@gmail.com">khirulislam5750@gmail.com</a>.</p>
+                        </li>
+                    </ul>
+                </div>
+            </section>
+
+
+
             <!-- Developer Introduction Section -->
             <div class="mt-5 pt-5 border-top">
-                <div class="text-center mb-4">
-                    <h2 class="fw-bold text-primary">Meet the Developer</h2>
-                    <p class="text-muted fs-5">The creator of this platform, dedicated to making a difference for pets
-                        and their owners.</p>
-                </div>
                 <div class="row align-items-center">
                     <div class="col-md-3 mx-auto text-center">
                         <img src="assets/img/Khirul-Islam.jpeg" class="rounded-circle img-fluid shadow-sm"
@@ -123,11 +217,16 @@
                     </div>
                     <div class="col-md-9 text-center text-md-start">
                         <h3 class="fw-bold text-dark">Khirul Islam</h3>
-                        <p class="text-muted">
-                            Hi, I’m Khirul, a passionate developer with a love for animals. This platform is my way of
-                            contributing to the welfare of pets and their owners by connecting them with loving
-                            adopters.
-                        </p>
+                        <q class="text-muted">
+                            This platform is designed with the goal of making a positive impact on the lives of pets and
+                            their owners. It connects pets in need of homes with loving adopters, providing a seamless
+                            experience for both adopters and pet owners.
+
+                            Through this project, we aim to create a community where pets can find their forever homes,
+                            while ensuring that owners can find trusted adopters who share their passion for animal
+                            welfare. The platform is built to be user-friendly, making the adoption process as smooth as
+                            possible for all involved.
+                        </q>
                     </div>
                 </div>
             </div>

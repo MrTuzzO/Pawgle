@@ -10,6 +10,7 @@
 
 body {
     font-family: Arial, sans-serif;
+    scroll-behavior: smooth;
 }
 
 img {
@@ -177,4 +178,18 @@ textarea:focus {
 
 .nav-link:hover {
     color: var(--bs-primary);
+}
+
+/* Custom css for extra desing */
+nav {
+    padding: 20px 0;
+    border-bottom-left-radius: 35px;
+    border-bottom-right-radius: 35px;
+}
+@media screen and (max-width: 576px) {
+    nav {
+        padding: 20px 0;
+        border-bottom-left-radius: 0;
+        border-bottom-right-radius: 0;
+    }
 }
