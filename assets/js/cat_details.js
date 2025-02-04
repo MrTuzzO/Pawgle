@@ -46,8 +46,7 @@ const renderCatDetails = (cat) => {
     const applyBtn = document.getElementById("apply-btn");
     applyBtn.textContent = "Edit";
     applyBtn.addEventListener("click", () => {
-      const encodedData = encodeURIComponent(JSON.stringify(cat));
-      window.location.href = `edit_cat.html?id=${catId}?data=${encodedData}`;
+      window.location.href = `edit_cat.html?id=${catId}`;
     });
   }
 

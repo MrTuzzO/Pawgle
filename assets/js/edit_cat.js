@@ -2,9 +2,12 @@ const params = new URLSearchParams(window.location.search);
 const catId = params.get('id');
 const apiURL = `${root_api}/api/pet/cats/`;
 const token = localStorage.getItem("authToken");
-
+const loader = document.getElementById('loader');
 
 document.addEventListener("DOMContentLoaded", () => {
+
+    loader.classList.remove('d-none'); // Show loader
+
     fetch(`${apiURL}${catId}/`, {
         headers: {
             Authorization: `Token ${token}`,
@@ -28,13 +31,13 @@ document.addEventListener("DOMContentLoaded", () => {
             document.getElementById("adoption_status").checked = data.adoption_status;
             document.getElementById("description").value = data.description;
         })
-        .catch((error) => showAlert("Error fetching cat details!"));
+        .catch((error) => showAlert("Error fetching cat details!"))
+        .finally(() => loader.classList.add('d-none'));
 });
 
 document.getElementById("editForm").addEventListener("submit", (e) => {
     e.preventDefault();
 
-    const loader = document.getElementById('loader');
     loader.classList.remove('d-none'); // Show loader
 
     const updatedData = {
