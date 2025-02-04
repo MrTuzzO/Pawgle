@@ -150,7 +150,6 @@ async function fetchFilteredPets(species, query, page = 1) {
     try {
         if (species === 'all') {
             const response = await fetch(`${root_api}/api/pets/?page=${page}&${query}`);
-            console.log(`${root_api}/api/pets/?page=${page}&${filters}`);
             const data = await response.json();
             return data;
         }
@@ -176,7 +175,7 @@ function getSelectedFilters() {
 
     if (gender) params.append("gender", gender);
     colors.forEach(color => params.append("color", color));
-    console.log(params.toString());
+    
     return `&${params.toString()}`;
 }
 
