@@ -77,6 +77,8 @@ document.getElementById("editForm").addEventListener("submit", (e) => {
 document.getElementById("deleteButton").addEventListener("click", () => {
     if (!confirm("Are you sure you want to delete this cat?")) return;
 
+    loader.classList.remove('d-none'); // Show loader
+
     fetch(`${apiURL}${catId}/`, {
         method: "DELETE",
         headers: {
@@ -90,5 +92,6 @@ document.getElementById("deleteButton").addEventListener("click", () => {
             showAlert("Cat deleted successfully!", 'success');
             window.location.href = "/user_profile.html"; // Redirect to cats listing page
         })
-        .catch((error) => showAlert("Error deleting cat!"));
+        .catch((error) => showAlert("Error deleting cat!"))
+        .finally(() => loader.classList.add('d-none'));
 });
