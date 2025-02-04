@@ -46,7 +46,8 @@ const renderCatDetails = (cat) => {
     const applyBtn = document.getElementById("apply-btn");
     applyBtn.textContent = "Edit";
     applyBtn.addEventListener("click", () => {
-      window.location.href = `edit_cat.html?id=${catId}`;
+      const encodedData = encodeURIComponent(JSON.stringify(cat));
+      window.location.href = `edit_cat.html?id=${catId}?data=${encodedData}`;
     });
   }
 
@@ -89,7 +90,7 @@ const renderCatDetails = (cat) => {
     <div class="info-item"><strong>Location:</strong> ${cat.location}</div>
     <div class="info-item"><strong>Adoption Cost:</strong> $${cat.adoption_cost}</div>
     <div class="info-item"><strong>Author:</strong> ${cat.author_username}</div>
-    <div class="info-item"><strong>Description:</strong> ${cat.description}</div>
+    <div class="info-item"><strong class="det_wrap">Description:</strong> ${cat.description}</div>
   `;
 };
 

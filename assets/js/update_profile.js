@@ -140,6 +140,9 @@ document.getElementById("update-profile-form").addEventListener("submit", async 
 
         if (response.ok) {
             showAlert("Profile updated successfully!", 'success');
+            setInterval(() => {
+                window.location.href = 'user_profile.html';
+            }, 2000);
         } else {
             const errorMessages = responseBody ? Object.entries(responseBody)
                 .map(([key, value]) => `<p><strong>${key}:</strong> ${value}</p>`)

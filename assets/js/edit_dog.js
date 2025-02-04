@@ -34,6 +34,9 @@ document.addEventListener("DOMContentLoaded", () => {
 document.getElementById("editForm").addEventListener("submit", (e) => {
     e.preventDefault();
 
+    const loader = document.getElementById('loader');
+    loader.classList.remove('d-none'); // Show loader
+
     const updatedData = {
         name: document.getElementById("name").value,
         year: parseInt(document.getElementById("year").value),
@@ -66,7 +69,8 @@ document.getElementById("editForm").addEventListener("submit", (e) => {
                 window.location.href = `/dogs_details.html?id=${petId}`;
             }, 2000);
         })
-        .catch((error) => showAlert("Error updating details!"));
+        .catch((error) => showAlert("Error updating details!"))
+        .finally(() => loader.classList.add('d-none'));
 });
 
 document.getElementById("deleteButton").addEventListener("click", () => {

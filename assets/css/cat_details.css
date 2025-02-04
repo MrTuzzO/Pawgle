@@ -14,22 +14,12 @@
 
 .info-item {
     display: flex;
-    /* align-items: center; */
+    flex-wrap: wrap;
 }
 
 .info-item strong {
-    min-width: 180px;
-    /* Fixed width for headings */
-    text-align: left;
+    min-width: 140px;
     font-weight: bold;
-    flex-shrink: 0;
-}
-
-.info-item span {
-    flex-grow: 1;
-    /* Responsive width for content */
-    text-align: left;
-    word-wrap: break-word;
 }
 
 .apply-btn {

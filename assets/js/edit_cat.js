@@ -3,6 +3,7 @@ const catId = params.get('id');
 const apiURL = `${root_api}/api/pet/cats/`;
 const token = localStorage.getItem("authToken");
 
+
 document.addEventListener("DOMContentLoaded", () => {
     fetch(`${apiURL}${catId}/`, {
         headers: {
@@ -32,6 +33,9 @@ document.addEventListener("DOMContentLoaded", () => {
 
 document.getElementById("editForm").addEventListener("submit", (e) => {
     e.preventDefault();
+
+    const loader = document.getElementById('loader');
+    loader.classList.remove('d-none'); // Show loader
 
     const updatedData = {
         name: document.getElementById("name").value,
@@ -63,7 +67,8 @@ document.getElementById("editForm").addEventListener("submit", (e) => {
                 window.location.href = `/cats_details.html?id=${catId}`;
             }, 2000);
         })
-        .catch((error) => showAlert("Error updating cat details!"));
+        .catch((error) => showAlert("Error updating cat details!"))
+        .finally(() => loader.classList.add('d-none'));
 });
 
 document.getElementById("deleteButton").addEventListener("click", () => {
