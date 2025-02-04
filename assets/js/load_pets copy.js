@@ -143,22 +143,24 @@ window.addEventListener('DOMContentLoaded', () => {
 
 
 // Function to fetch pets based on filters
-async function fetchFilteredPets(species, query, page = 1) {
+async function fetchFilteredPets(species, filters, page = 1) {
     const loader = document.getElementById('loader');
     loader.classList.remove('d-none'); // Show loader
 
     try {
         if (species === 'all') {
+            const query = new URLSearchParams(filters).toString();
             const response = await fetch(`${root_api}/api/pets/?page=${page}&${query}`);
-            console.log(`${root_api}/api/pets/?page=${page}&${filters}`);
+            console.log(`${root_api}/api/pets/?page=${page}&${query}`);
             const data = await response.json();
             return data;
         }
+        const query = new URLSearchParams(filters).toString();
         const response = await fetch(`${root_api}/api/pet/${species}/?page=${page}&${query}`);
 
         const data = await response.json();
         return data;
-    } catch (error) {
+    }catch (error) {
         console.error("Error fetching pets:", error);
         return null;
     } finally {
@@ -172,12 +174,10 @@ function getSelectedFilters() {
     const colorSelect = document.getElementById('colorSelect');
     const colors = Array.from(colorSelect.selectedOptions).map(option => option.textContent);
 
-    const params = new URLSearchParams();
-
-    if (gender) params.append("gender", gender);
-    colors.forEach(color => params.append("color", color));
-    console.log(params.toString());
-    return `&${params.toString()}`;
+    const filters = {};
+    if (gender) filters.gender = gender;
+    if (colors.length > 0) filters.color = colors; // Handle multiple colors
+    return filters;
 }
 
 // Function to handle filter form submission
