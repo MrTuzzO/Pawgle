@@ -109,6 +109,10 @@ function createPagination(totalCount, currentPage) {
 
     const totalPages = Math.ceil(totalCount / petsPerPage);
 
+    if (totalPages <= 1) {
+        return; // Do not create pagination buttons if there is only one page
+    }
+
     for (let i = 1; i <= totalPages; i++) {
         paginationContainer.innerHTML += `
         <button class="btn ${i === currentPage ? 'btn-primary' : 'btn-outline-primary'} mx-1" data-page="${i}">
