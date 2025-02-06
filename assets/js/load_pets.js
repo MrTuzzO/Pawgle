@@ -3,7 +3,9 @@
 async function fetchPets(species, page = 1) {
     // for adding loader
     const loader = document.getElementById('loader');
-    loader.classList.remove('d-none'); // Show loader
+    // loader.classList.remove('d-none'); // Show loader
+    const petContainer = document.getElementById('petCardsHolder');
+    petContainer.innerHTML = '<h3 class="text-center w-100 text-muted">Loading...</h3>';
 
     try {
         if (species === 'all') {
@@ -26,7 +28,7 @@ async function fetchPets(species, page = 1) {
         console.error("Error fetching pets:", error);
         return null;
     } finally {
-        loader.classList.add('d-none'); // Hide loader
+        // loader.classList.add('d-none'); // Hide loader
     }
 }
 
