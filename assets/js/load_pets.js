@@ -5,7 +5,7 @@ async function fetchPets(species, page = 1) {
     const loader = document.getElementById('loader');
     // loader.classList.remove('d-none'); // Show loader
     const petContainer = document.getElementById('petCardsHolder');
-    petContainer.innerHTML = '<h3 class="text-center w-100 text-muted">Loading...</h3>';
+    petContainer.innerHTML = '<h4 class="text-center w-100 text-muted">Loading pets...</h4>';
 
     try {
         if (species === 'all') {
@@ -151,7 +151,9 @@ window.addEventListener('DOMContentLoaded', () => {
 // Function to fetch pets based on filters
 async function fetchFilteredPets(species, query, page = 1) {
     const loader = document.getElementById('loader');
-    loader.classList.remove('d-none'); // Show loader
+    // loader.classList.remove('d-none'); // Show loader
+    const petContainer = document.getElementById('petCardsHolder');
+    petContainer.innerHTML = '<h4 class="text-center w-100 text-muted">Loading pets...</h4>';
 
     try {
         if (species === 'all') {
@@ -167,7 +169,7 @@ async function fetchFilteredPets(species, query, page = 1) {
         console.error("Error fetching pets:", error);
         return null;
     } finally {
-        loader.classList.add('d-none'); // Hide loader
+        // loader.classList.add('d-none'); // Hide loader
     }
 }
 
@@ -181,7 +183,7 @@ function getSelectedFilters() {
 
     if (gender) params.append("gender", gender);
     colors.forEach(color => params.append("color", color));
-    
+
     return `&${params.toString()}`;
 }
 
