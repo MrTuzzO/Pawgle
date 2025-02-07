@@ -160,6 +160,10 @@ async function fetchFilteredPets(species, query, page = 1) {
             const response = await fetch(`${root_api}/api/pets/?page=${page}&${query}`);
             const data = await response.json();
             return data;
+        } else if (species === 'pets') {
+            const response = await fetch(`${root_api}/api/pets/pets_only/?page=${page}&${query}`);
+            const data = await response.json();
+            return data;
         }
         const response = await fetch(`${root_api}/api/pet/${species}/?page=${page}&${query}`);
 
