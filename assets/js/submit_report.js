@@ -1,6 +1,11 @@
 document.getElementById("reportForm").addEventListener("submit", async function (e) {
     e.preventDefault();
 
+    if (!localStorage.getItem("authToken")) {
+        showAlert("Please login to submit a report.", "warning");
+        return;
+    }
+
     const loader = document.getElementById('loader');
     loader.classList.remove('d-none'); // Show loader
 
