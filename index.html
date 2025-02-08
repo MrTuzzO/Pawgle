@@ -33,10 +33,36 @@
 
   <!-- Main Content -->
   <main>
-    <div class="container mt-5">
+    <section class="pb-5">
+      <div class="container">
+        <div class="row flex-column flex-md-row">
+          <div class="col-md-6 order-2 order-md-1 d-flex align-items-center">
+            <div class="my-3 text-center text-md-start">
+              <p class="display-5">ADOPT A PET AT
+                THE <span class="text-primary">PAWGLE</span>
+                ADOPTION CENTER
+              </p>
+              <p class="lead">Find your perfect furry friend today!</p>
+              <div class="d-flex">
+                <a href="about_us.html" class="btn btn-outline-primary">About Us</a>
+                <a href="index.html#find_pet" class="btn btn-primary ms-2">Find pet</a>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-6 order-1 order-md-2">
+            <img src="assets/img/banner_1.jpg" class="img-fluid" alt="Adopt a Pet">
+          </div>
+        </div>
+      </div>
+
+    </section>
+    <div id="find_pet" class="container mt-5">
       <div class="row">
         <!-- Filtering Section -->
+
         <div class="col-lg-3 mb-4">
+
+          <p class="fs-4 text-primary">Filter</p>
           <section class="p-4 bg-light rounded border">
             <form>
               <div class="mb-3">
@@ -65,7 +91,8 @@
                   <option value="white">White</option>
                   <option value="brown">Brown</option> -->
                 </select>
-                <small class="form-text text-muted d-none d-sm-block">Hold Ctrl (Cmd on Mac) to select multiple colors</small>
+                <small class="form-text text-muted d-none d-sm-block">Hold Ctrl (Cmd on Mac) to select multiple
+                  colors</small>
               </div>
 
               <div class="text-end">
@@ -78,6 +105,8 @@
 
         <!-- Pet Info Cards Section -->
         <div class="col-lg-9 mb-5">
+          
+          <p class="fs-4 text-primary">Results</p>
           <div class="row row-cols-1 row-cols-md-3 g-4" id="petCardsHolder">
             <!-- Pet Card -->
 
