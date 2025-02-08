@@ -4,8 +4,9 @@ const baseApiUrl = `${root_api}/api/pets/my_pets/`;
 // Function to fetch data from the API with authentication token
 async function fetchPets(page = 1) {
     const token = localStorage.getItem('authToken'); // Retrieve the token from localStorage
-    const loader = document.getElementById('loader');
-    loader.classList.remove('d-none'); // Show loader
+
+    const petContainer = document.getElementById('petCardsHolder');
+    petContainer.innerHTML = '<p class="text-center w-100 text-muted my-5">Loading your pets...</p>';
 
     if (!token) {
         loader.classList.add('d-none'); // Hide loader
@@ -14,16 +15,6 @@ async function fetchPets(page = 1) {
     }
 
     try {
-        const response = await fetch(`${baseApiUrl}?page=${page}`, {
-            method: 'GET',
-            headers: {
-                'Authorization': `Token ${token}`, // Include the token in the headers
-                'Content-Type': 'application/json',
-            },
-        });
-
-        if (!response.ok) {
-             try {
         const response = await fetch(`${baseApiUrl}?page=${page}`, {
             method: 'GET',
             headers: {
@@ -43,20 +34,6 @@ async function fetchPets(page = 1) {
         console.error('Error fetching pets:', error);
         showAlert('An error occurred while fetching pets.');
         return null;
-    } finally {
-        loader.classList.add('d-none'); // Hide loader
-    }('Failed to fetch pets. Please check your authentication.');
-            return;
-        }
-
-        const data = await response.json();
-        return data;
-    } catch (error) {
-        console.error('Error fetching pets:', error);
-        showAlert('An error occurred while fetching pets.');
-        return null;
-    } finally {
-        loader.classList.add('d-none'); // Hide loader
     }
 }
 
@@ -93,7 +70,11 @@ function createPetCard(pet) {
 function displayPets(pets) {
     const petContainer = document.getElementById('petCardsHolder');
     petContainer.innerHTML = '';
-
+    if (pets.length === 0) {
+        petContainer.innerHTML = '<p class="text-center w-100 text-muted my-5">No pets found.</p>';
+        return;
+    }
+    
     pets.forEach(pet => {
         petContainer.innerHTML += createPetCard(pet);
     });
