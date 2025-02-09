@@ -59,22 +59,26 @@ function createPetCard(pet, selectedSpecies) {
                
                 ${badgeText ? `<span class="badge position-absolute" style="top: 220px; right: 4px; font-size: 0.9rem; background: #c19a6b9b">${badgeText}</span>` : ""}
                
-                <div class="card-body">
-                    <h5 class="card-title text-primary fw-bold">${pet.name}</h5>
+                <div class="card-body d-flex align-items-center">
+                    <div class="me-3">
+                        <img src="${pet.author_user_img || 'assets/img/blank-profile-picture.png'}" class="rounded-circle" 
+                        style="width: 60px; height: 60px; object-fit: cover;"/>
+                </div>
+
+                <div>
+                    <h5 class="card-title text-primary fw-bold mb-0">${pet.name}</h5>
                     <p class="card-text text-dark mb-0">
                         <span>
-                             ${pet.year === 0 && pet.month === 0
-            ? "Age not mentioned"
-            : pet.year === 0
-                ? `${pet.month} Month`
-                : pet.month === 0
-                    ? `${pet.year} Year`
-                    : `${pet.year} Year ${pet.month} Month`}
+                            ${pet.year === 0 && pet.month === 0 ? "Age not mentioned"
+                            : pet.year === 0 ? `${pet.month} Month`
+                            : pet.month === 0 ? `${pet.year} Year`
+                            : `${pet.year} Year ${pet.month} Month`}
                         </span>
                     </p>
                     <p class="card-text text-dark">
                         <i class="fas fa-map-marker-alt text-primary"></i> ${pet.location}
                     </p>
+                </div>
                 </div>
             </div>
         </a>
