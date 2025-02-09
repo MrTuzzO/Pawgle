@@ -1,6 +1,7 @@
 :root {
     --bs-primary: #c19a6b;
     --bs-primary-rgb: 193, 154, 107;
+    --bs-primary-light: #efcea73d;
 }
 
 * {
@@ -11,6 +12,10 @@
 body {
     font-family: Arial, sans-serif;
     scroll-behavior: smooth;
+}
+
+.bg-primary-light {
+    background-color: var(--bs-primary-light);
 }
 
 img {
