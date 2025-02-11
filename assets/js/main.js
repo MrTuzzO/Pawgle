@@ -1,8 +1,13 @@
 document.addEventListener("DOMContentLoaded", () => {
-    includeHTML("header", "components/header.html");
+    if (localStorage.getItem('adminSecure')) {
+        includeHTML("header", "components/admin_header.html");
+    } else {
+        includeHTML("header", "components/header.html");
+    }
     includeHTML("footer", "components/footer.html");
     includeHTML("loader", "components/loader.html");
     addLogoutModal(); // Add logout modal after DOM is loaded
+    updateNavbarForAdmin();
 });
 
 // Function to include HTML content into a container
@@ -120,7 +125,7 @@ function addLogoutModal() {
                 const errorData = await response.json();
                 console.error('Logout failed:', errorData);
                 showAlert('Logout failed. Please try again.', 'warning');
-                
+
                 // Remove the token and redirect to the login page
                 localStorage.removeItem('authToken');
                 localStorage.clear();

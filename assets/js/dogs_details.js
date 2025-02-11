@@ -38,11 +38,11 @@ const renderpetDetails = (pet) => {
     (img) => img !== null
   );
 
-  if (pet.adoption_status && localStorage.getItem("username") !== pet.author_username) {
+  if (pet.adoption_status && localStorage.getItem("username") !== pet.author_username && !localStorage.getItem("adminSecure")) {
     document.getElementById("apply-btn").classList.add("disabled");
     document.getElementById("apply-btn").textContent = "Already Adopted";
   }
-  if (localStorage.getItem("username") === pet.author_username) {
+  if (localStorage.getItem("username") === pet.author_username || localStorage.getItem("adminSecure")) {
     const applyBtn = document.getElementById("apply-btn");
     applyBtn.textContent = "Edit";
     applyBtn.addEventListener("click", () => {

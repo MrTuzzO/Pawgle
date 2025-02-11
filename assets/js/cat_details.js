@@ -32,17 +32,17 @@ const renderCatDetails = (cat) => {
   const infoHeader = document.querySelector(".info-header");
 
   document.title = `${cat.name} - ${cat.description}`;
-  
+
   // Add images to the carousel
   const images = [cat.image_1, cat.image_2, cat.image_3, cat.image_4].filter(
     (img) => img !== null
   );
 
-  if (cat.adoption_status && localStorage.getItem("username") !== cat.author_username) {
+  if (cat.adoption_status && localStorage.getItem("username") !== cat.author_username && !localStorage.getItem("adminSecure")) {
     document.getElementById("apply-btn").classList.add("disabled");
     document.getElementById("apply-btn").textContent = "Already Adopted";
   }
-  if (localStorage.getItem("username") === cat.author_username) {
+  if (localStorage.getItem("username") === cat.author_username || localStorage.getItem("adminSecure")) {
     const applyBtn = document.getElementById("apply-btn");
     applyBtn.textContent = "Edit";
     applyBtn.addEventListener("click", () => {
