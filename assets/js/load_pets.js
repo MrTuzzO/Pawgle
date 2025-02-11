@@ -154,8 +154,6 @@ window.addEventListener('DOMContentLoaded', () => {
 
 // Function to fetch pets based on filters
 async function fetchFilteredPets(species, query, page = 1) {
-    const loader = document.getElementById('loader');
-    // loader.classList.remove('d-none'); // Show loader
     const petContainer = document.getElementById('petCardsHolder');
     petContainer.innerHTML = '<h4 class="text-center w-100 text-muted">Loading pets...</h4>';
 
