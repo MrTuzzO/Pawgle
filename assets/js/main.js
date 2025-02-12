@@ -1,8 +1,7 @@
 document.addEventListener("DOMContentLoaded", () => {
+    includeHTML("header", "components/header.html");
     if (localStorage.getItem('adminSecure')) {
         includeHTML("header", "components/admin_header.html");
-    } else {
-        includeHTML("header", "components/header.html");
     }
     includeHTML("footer", "components/footer.html");
     includeHTML("loader", "components/loader.html");

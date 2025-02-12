@@ -74,4 +74,3 @@ document.addEventListener("DOMContentLoaded", function () {
             showAlert('Error fetching adoption requests. Please try again later.', 'danger');
         });
 });
-
