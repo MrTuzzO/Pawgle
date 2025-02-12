@@ -7,7 +7,6 @@ document.addEventListener("DOMContentLoaded", () => {
     includeHTML("footer", "components/footer.html");
     includeHTML("loader", "components/loader.html");
     addLogoutModal(); // Add logout modal after DOM is loaded
-    updateNavbarForAdmin();
 });
 
 // Function to include HTML content into a container
