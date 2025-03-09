@@ -251,6 +251,7 @@
                                 <textarea id="message" name="message" class="form-control border-0 shadow-sm" rows="4"
                                     placeholder="Your Message" required></textarea>
                             </div>
+                            <div class="h-captcha" data-captcha="true"></div>
                             <button type="submit" class="btn btn-primary w-100 shadow-sm">Send Message</button>
                         </form>
                         <div id="result" class="py-2"></div>
@@ -280,12 +281,21 @@
 
     </main>
     <div id="footer"></div>
-
+    <!-- for capcha -->
+    <script src="https://web3forms.com/client/script.js" async defer></script>
     <script>
         const form = document.getElementById('form');
         const result = document.getElementById('result');
 
         form.addEventListener('submit', function (e) {
+            const hCaptcha = form.querySelector('textarea[name=h-captcha-response]').value;
+
+            if (!hCaptcha) {
+                e.preventDefault();
+                alert("Please fill out captcha field")
+                return
+            }
+
             const formData = new FormData(form);
             e.preventDefault();
 
