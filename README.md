@@ -1,4 +1,4 @@
-# Pawgle [Live Link: pawgle.netlify.app](https://pawgle.netlify.app)
+# Pawgle
 
 ## Overview
 **Pawgle** is a web-based platform designed to facilitate pet adoption processes. It allows users to browse available pets, donate pets for adoption, and manage adoption-related activities. The platform features user authentication, pet search functionalities, and administrative controls.
@@ -14,3 +14,6 @@
 - **Frontend:** HTML, CSS, JavaScript
 - **Backend:** Django Rest Framework  - [Backend Repository](https://github.com/MrTuzzO/Pet_Adoption_BackendDRF)
 - **Database:** PostgreSQL
+
+## Live Link
+[www.pawgle.netlify.app](https://pawgle.netlify.app)
