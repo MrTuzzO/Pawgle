@@ -14,8 +14,3 @@
 - **Frontend:** HTML, CSS, JavaScript
 - **Backend:** Django Rest Framework
 - **Version Control:** Git
-
-## Installation
-1. **Clone the Repository:**
-   ```bash
-   git clone https://github.com/MrTuzzO/Pawgle.git
