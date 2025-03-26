@@ -12,5 +12,5 @@
 
 ## Technologies Used
 - **Frontend:** HTML, CSS, JavaScript
-- **Backend:** Django Rest Framework
-- **Version Control:** Git
+- **Backend:** Django Rest Framework  - [Backend Repository](https://github.com/MrTuzzO/Pet_Adoption_BackendDRF)
+- **Database:** PostgreSQL
