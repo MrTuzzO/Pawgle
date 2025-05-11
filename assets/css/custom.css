@@ -1,6 +1,8 @@
 :root {
     --bs-primary: #c19a6b;
+    --bs-primary: #de9246;
     --bs-primary-rgb: 193, 154, 107;
+    --bs-primary-rgb: 222, 146, 70;
     --bs-primary-light: #efcea73d;
 }
 
